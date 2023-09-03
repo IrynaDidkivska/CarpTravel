@@ -10,8 +10,8 @@ export default function Home() {
     <main>
       <Menu />
       <WhoWeAre />
-      <WeOffer />
-      <Form />
+      {/* <WeOffer /> */}
+      {/* <Form /> */}
       <Gallery />
       <ContactUs />
     </main>

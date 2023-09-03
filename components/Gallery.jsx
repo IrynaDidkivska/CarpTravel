@@ -1,3 +1,10 @@
+import Section from "./Section";
+import Title from "./Title";
+
 export default function Gallery() {
-  return <div>Gallery</div>;
+  return (
+    <Section>
+      <Title firstPart="our" secondPart="gallery" />
+    </Section>
+  );
 }

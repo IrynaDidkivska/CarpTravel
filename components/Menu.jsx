@@ -1,7 +1,15 @@
+"use client";
 import Image from "next/image";
 import Section from "./Section";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 export default function Menu() {
+  const handleScrollToSection = (sectionId) => {
+    scroll.scrollTo(sectionId, {
+      duration: 500,
+      smooth: true,
+    });
+  };
   return (
     <Section
       style={{
@@ -35,9 +43,18 @@ export default function Menu() {
         Carpathians. Enjoy stunning views, exciting expeditions, and the best
         service!
       </p>
-      <button className="flex items-center justify-center w-full px-[64px] py-[18px] uppercase  border border-dashed border-white bg-white/10">
+      <Link
+        onClick={handleScrollToSection("ContactUs")}
+        activeClass="active"
+        spy={true}
+        to="ContactUs"
+        smooth={true}
+        offset={0}
+        duration={500}
+        className="flex items-center justify-center w-full px-[64px] py-[18px] uppercase  border border-dashed border-white bg-white/10"
+      >
         Join Now
-      </button>
+      </Link>
     </Section>
   );
 }
