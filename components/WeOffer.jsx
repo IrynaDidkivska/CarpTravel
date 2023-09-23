@@ -14,8 +14,11 @@ export default function WeOffer() {
       <Swiper spaceBetween={50} slidesPerView={1}>
         {data.map((item, idx) => (
           <SwiperSlide key={item.title}>
-            <span>
-              0{idx + 1}/0{data.length}
+            <span className="font-normal text-[43px] text-right">
+              0{idx + 1}/
+              <span className="font-inter font-thin text-[43px] text-right">
+                0{data.length}
+              </span>
             </span>
             <Image
               src={item.imgSrc}
@@ -23,12 +26,20 @@ export default function WeOffer() {
               width={280}
               height={213}
             />
+            <p className="font-inter font-thin text-xs text-right mb-6">
+              {item.title}
+            </p>
             <ul>
               {data.map((item) => (
-                <li key={item.title}>{item.listItem}</li>
+                <li
+                  key={item.title}
+                  className="font-inter text-xl font-medium uppercase leading-[17px] mb-4"
+                >
+                  {item.listItem}
+                </li>
               ))}
             </ul>
-            <p>{item.desc}</p>
+            <p className="font-inter text-sm font-extralight ">{item.desc}</p>
           </SwiperSlide>
         ))}
       </Swiper>
