@@ -10,7 +10,7 @@ export default function Home() {
     <main>
       <Menu />
       <WhoWeAre />
-      {/* <WeOffer /> */}
+      <WeOffer />
       {/* <Form /> */}
       <Gallery />
       <ContactUs />
