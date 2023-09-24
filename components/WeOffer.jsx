@@ -6,20 +6,46 @@ import Title from "./Title";
 import Image from "next/image";
 import { data } from "../assets/data";
 import { list } from "postcss";
+import { useRef, useState } from "react";
+import clsx from "clsx";
 
 export default function WeOffer() {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const swiperRef = useRef();
+
+  const handleSlideChange = (swiper) => {
+    setActiveIndex(swiper.activeIndex);
+  };
+
+  const goToSlide = (idx) => {
+    if (swiperRef.current) {
+      swiperRef.current.swiper.slideTo(idx);
+    }
+  };
+
   return (
-    <Section>
+    <Section
+      className="relative z-40 py-14 px-5 text-white"
+      style={{
+        background: 'url("/images/slider-bg.jpg") no-repeat center/cover',
+      }}
+    >
+      <div className="absolute inset-0 z-[-1] bg-black bg-opacity-60 "></div>
+
       <Title firstPart="we" secondPart="offer" />
-      <Swiper spaceBetween={50} slidesPerView={1}>
+      <Swiper
+        spaceBetween={50}
+        slidesPerView={1}
+        ref={swiperRef}
+        onSlideChange={handleSlideChange}
+      >
         {data.map((item, idx) => (
           <SwiperSlide key={item.title}>
-            <span className="font-normal text-[43px] text-right">
-              0{idx + 1}/
-              <span className="font-inter font-thin text-[43px] text-right">
-                0{data.length}
-              </span>
-            </span>
+            <div className="flex  justify-end">
+              <p className="font-normal text-[43px]">
+                0{idx + 1}/<span className=" font-thin ">0{data.length}</span>
+              </p>
+            </div>
             <Image
               src={item.imgSrc}
               alt={item.listItem}
@@ -30,10 +56,14 @@ export default function WeOffer() {
               {item.title}
             </p>
             <ul>
-              {data.map((item) => (
+              {data.map((item, index) => (
                 <li
+                  onClick={() => goToSlide(index)}
                   key={item.title}
-                  className="font-inter text-xl font-medium uppercase leading-[17px] mb-4"
+                  className={clsx(
+                    "font-inter text-xl font-extralight uppercase opacity-50 leading-[17px] mb-4",
+                    activeIndex === index && "font-medium opacity-100"
+                  )}
                 >
                   {item.listItem}
                 </li>
