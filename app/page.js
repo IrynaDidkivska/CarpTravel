@@ -9,12 +9,12 @@ import WhoWeAre from "@/components/WhoWeAre";
 export default function Home() {
   return (
     <main>
-      {/* <Menu /> */}
-      {/* <WhoWeAre /> */}
-      {/* <WeOffer /> */}
-      {/* <ChooseUs /> */}
+      <Menu />
+      <WhoWeAre />
+      <WeOffer />
+      <ChooseUs />
       <Gallery />
-      {/* <ContactUs /> */}
+      <ContactUs />
     </main>
   );
 }
