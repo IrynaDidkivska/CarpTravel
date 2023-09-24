@@ -1,3 +1,4 @@
+import ChooseUs from "@/components/ChooseUs";
 import ContactUs from "@/components/ContactUs";
 import Form from "@/components/Form";
 import Gallery from "@/components/Gallery";
@@ -8,12 +9,12 @@ import WhoWeAre from "@/components/WhoWeAre";
 export default function Home() {
   return (
     <main>
-      <Menu />
-      <WhoWeAre />
-      <WeOffer />
-      {/* <Form /> */}
-      <Gallery />
-      <ContactUs />
+      {/* <Menu /> */}
+      {/* <WhoWeAre /> */}
+      {/* <WeOffer /> */}
+      <ChooseUs />
+      {/* <Gallery /> */}
+      {/* <ContactUs /> */}
     </main>
   );
 }
