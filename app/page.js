@@ -12,8 +12,8 @@ export default function Home() {
       {/* <Menu /> */}
       {/* <WhoWeAre /> */}
       {/* <WeOffer /> */}
-      <ChooseUs />
-      {/* <Gallery /> */}
+      {/* <ChooseUs /> */}
+      <Gallery />
       {/* <ContactUs /> */}
     </main>
   );
